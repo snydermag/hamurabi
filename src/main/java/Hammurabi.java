@@ -80,12 +80,18 @@ public class Hammurabi {
     // Function to calculate number of immigrants
     // TODO OLAMIDE
     public int immigrants(int population, int acresOwned, int grainInStorage){
-        return 0;
+        int numOfImmigrants;
+       numOfImmigrants = (20 * acresOwned + grainInStorage) / (100 * population) +1;
+
+        return numOfImmigrants;
     }
 
     // Function to determine new cost of land
     // TODO OLAMIDE
     public int newCostOfLand() {
+
+        int price = (int) (Math.random() *6) + 17;
+
         return 0;
     }
 
