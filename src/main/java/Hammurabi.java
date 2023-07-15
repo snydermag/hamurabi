@@ -92,7 +92,12 @@ public class Hammurabi {
 
     // METHODS TO TAKE IN USER INPUT
     public int askHowManyAcresToBuy(int price, int bushels){
+        System.out.print("HOW MANY ACRES DO YOU WISH TO BUY?  ");
+        temp = input.nextInt();
 
+        if (temp < 0){
+            System.out.print("")
+        }
         return 0;
     }
 
