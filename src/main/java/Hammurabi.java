@@ -58,6 +58,7 @@ public class Hammurabi {
             "BEEN IMPEACHED AND THROWN OUT OF OFFICE BUT YOU HAVE\n" +
             "ALSO BEEN DECLARED PERSONA NON GRATA!!\n";
 
+
     public void playGame(){
 
     }
@@ -90,16 +91,20 @@ public class Hammurabi {
 
 
     // METHODS TO TAKE IN USER INPUT
+    public int askHowManyAcresToBuy(int price, int bushels){
 
-    public void updateAcres(){
-
+        return 0;
     }
 
-    public void feedPeople(){
-
+    public int askHowManyAcresToSell(int acresOwned){
+        return 0;
     }
-
-
+    public int askHowMuchGrainToFeedPeople(int bushels){
+        return 0;
+    }
+    public int askHowManyAcresToPlant(int acresOwned, int population, int bushels){
+        return 0;
+    }
 
 
 
@@ -175,6 +180,7 @@ public class Hammurabi {
             eaten = 0;
         stores += (harvest - eaten);
 
+
         // CALCULATING IMMIGRANTS
         immigrants = (int) (Math.random() * 5 + 1) *
                 (20 * acres + stores) / population / 100 + 1;
@@ -186,6 +192,7 @@ public class Hammurabi {
             population = fullPeople;
             totalDeaths += deaths;
         }
+
 
         // DETERMINING PLAGUE
         if (20 * Math.random() >= 17)
