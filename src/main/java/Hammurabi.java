@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.Scanner;
-
+import java.util.Random;
 public class Hammurabi {
 
     public static void main(String[] args) throws IOException {
@@ -29,6 +29,7 @@ public class Hammurabi {
     static boolean plague = false;          // If there is a plague or not
     Scanner input = new Scanner(System.in); // Scanner to take in user input
 
+    public Random rand = new Random();
     // People
     static int totalDeaths = 0; // Total number of deaths from starvation
     static int population = 95; // Current population
@@ -48,8 +49,10 @@ public class Hammurabi {
     // Other fields
     int temp;                   // Temporary value to hold input from user
 
+
     static int eaten = harvest - stores;
     static int fullPeople;
+
 
 
     final static String FINK = "DUE TO THIS EXTREME MISMANAGEMENT YOU HAVE NOT ONLY\n" +
@@ -92,9 +95,9 @@ public class Hammurabi {
     // TODO OLAMIDE
     public int newCostOfLand() {
 
-        int price = (int) (Math.random() *6) + 17;
+        int price = (int) (rand.nextInt(7) + 17);
 
-        return 0;
+        return price;
     }
 
 
@@ -275,8 +278,25 @@ public class Hammurabi {
         if (20 * Math.random() >= 17)
             plague = true;
         plague = false;
+   */
 
-         */
+    private static String report() {
+        String answer = "\nHAMURABI:  I BEG TO REPORT TO YOU,\n" +
+                "IN YEAR " + year + ", " + deaths + " PEOPLE STARVED, " + immigrants + " CAME TO THE CITY.\n";
+        if (plague) {
+            population = population / 2;
+            answer += "A HORRIBLE PLAGUE STRUCK!  HALF THE PEOPLE DIED.\n";
+        }
+        answer += "POPULATION IS NOW " + population + ".\n" +
+                "THE CITY NOW OWNS " + acres + " ACRES.\n" +
+                "YOU HARVESTED " + yield + " BUSHELS PER ACRE.\n" +
+                "RATS ATE " + eaten + " BUSHELS.\n" +
+                "YOU NOW HAVE " + stores + " BUSHELS IN STORE\n\n" +
+                "LAND IS TRADING AT " + landPrice + " BUSHELS PER ACRE.";
+        return answer;
+      
+      
+
     }
 
 
@@ -320,25 +340,56 @@ public class Hammurabi {
     }
 
     public int plagueDeaths(int population){
-        return 0;
+        int chance = rand.nextInt(100);
+        if (chance < 15 ) {
+            return population / 2;
+        } else {
+
+            return 0;
+        }
     }
 
     public int starvationDeaths(int population, int bushelsFedToPeople){
-        return 0;
+        int starving = population - (bushelsFedToPeople / 20);
+
+        if (bushelsFedToPeople >= (population * 20)) {
+            return 0;
+        } else {
+
+            return starving;
+        }
+
     }
 
     public boolean uprising(int population, int howManyPeopleStarved){
-        return true;
+        if (howManyPeopleStarved > (0.45 * population)) {
+            return true;
+        } else {
+
+            return false;
+        }
     }
 
 
 
     public int harvest(int acres){
-        return 0;
+        int yield = rand.nextInt(6) + 1;
+        int harvested = yield * acres;
+
+        return harvested;
     }
 
     public int grainEatenByRats(int bushels){
-        return 0;
+        int chance = rand.nextInt(100);
+
+        if (chance < 40) {
+            double percentEatenByRats = (rand.nextDouble() /5 + 0.1);
+            double bushelsEatenByRats = bushels * (percentEatenByRats);
+            return (int) bushelsEatenByRats;
+        } else {
+            return 0;
+        }
+
     }
 
 
