@@ -279,25 +279,9 @@ public class Hammurabi {
             plague = true;
         plague = false;
    */
-
-    private static String report() {
-        String answer = "\nHAMURABI:  I BEG TO REPORT TO YOU,\n" +
-                "IN YEAR " + year + ", " + deaths + " PEOPLE STARVED, " + immigrants + " CAME TO THE CITY.\n";
-        if (plague) {
-            population = population / 2;
-            answer += "A HORRIBLE PLAGUE STRUCK!  HALF THE PEOPLE DIED.\n";
-        }
-        answer += "POPULATION IS NOW " + population + ".\n" +
-                "THE CITY NOW OWNS " + acres + " ACRES.\n" +
-                "YOU HARVESTED " + yield + " BUSHELS PER ACRE.\n" +
-                "RATS ATE " + eaten + " BUSHELS.\n" +
-                "YOU NOW HAVE " + stores + " BUSHELS IN STORE\n\n" +
-                "LAND IS TRADING AT " + landPrice + " BUSHELS PER ACRE.";
-        return answer;
-      
-      
-
     }
+
+
 
 
 
